@@ -1,7 +1,7 @@
 module Extras.Core exposing
     ( flip
     , unless
-    , always, byKey
+    , byKey
     )
 
 {-| General convenience functions.
