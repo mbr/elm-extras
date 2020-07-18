@@ -1,11 +1,12 @@
 module Extras.Core exposing
-    ( flip
+    ( byKey
+    , flip
     , unless
-    , byKey
     )
 
 {-| General convenience functions.
 
+@docs byKey
 @docs flip
 @docs unless
 
