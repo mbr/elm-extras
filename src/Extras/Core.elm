@@ -1,28 +1,15 @@
 module Extras.Core exposing
-    ( always
-    , flip
+    ( flip
     , unless
+    , always, byKey
     )
 
 {-| General convenience functions.
 
-@docs always
 @docs flip
 @docs unless
 
 -}
-
-
-{-| Regardless of input, always return a constant value.
-
-Helpful adapter for function that only offer updates when one really just wants to replace a value:
-
-    List.updateAt index (always item) list
-
--}
-always : a -> b -> a
-always value =
-    \_ -> value
 
 
 {-| Change the order of the arguments of a two argument function.
