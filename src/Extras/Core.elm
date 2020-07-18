@@ -12,6 +12,20 @@ module Extras.Core exposing
 -}
 
 
+{-| Create a predicate that matches on a specific extracted value.
+
+    > let alice = { id = 1, name = "Alice" }
+    |     bob = { id = 2, name = "Bob" }
+    |     users =
+    | in List.filter (byKey .id 2) users
+    [{ id = 2, name = "Bob" }]
+
+-}
+byKey : (a -> b) -> b -> a -> Bool
+byKey extract key =
+    extract >> (==) key
+
+
 {-| Change the order of the arguments of a two argument function.
 
     > flip (++) "Hello" "World"
