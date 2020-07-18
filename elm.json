@@ -1,13 +1,14 @@
 {
     "type": "package",
     "name": "mbr/elm-extras",
-    "summary": "General purpose standard library extension",
+    "summary": "Highly experimental general purpose standard library extension",
     "license": "BSD-3-Clause",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "exposed-modules": [],
+    "elm-version": "0.19.0 <= v <= 0.20.0",
     "dependencies": {
-        "elm/core": "1.0.0 <= v < 2.0.0"
+        "elm/core": "1.0.0 <= v < 2.0.0",
+        "elm/html": "1.0.0 <= v < 2.0.0"
     },
-    "test-dependencies": {},
-    "elm-version": "0.19.0 <= v <= 0.20.0"
+    "test-dependencies": {}
 }
