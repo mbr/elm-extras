@@ -3,7 +3,7 @@
     "name": "mbr/elm-extras",
     "summary": "Highly experimental general purpose standard library extension",
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "exposed-modules": [
         "Extras.Html",
         "Extras.Html.Attributes"
