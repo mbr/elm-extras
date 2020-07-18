@@ -1,8 +1,6 @@
 module Extras.Html exposing (nothing)
 
-{-| Html extras
-
-Convenience functions for working with `Html.Html`
+{-| Convenience functions for working with `Html.Html`
 
 @docs nothing
 
@@ -11,7 +9,7 @@ Convenience functions for working with `Html.Html`
 import Html exposing (Html, text)
 
 
-{-| Empty element
+{-| Empty element.
 
 Useful if need to produce an HTML element that evaluates to nothing. Example:
 

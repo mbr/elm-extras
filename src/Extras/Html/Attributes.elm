@@ -1,8 +1,6 @@
 module Extras.Html.Attributes exposing (none)
 
-{-| Html attribute extras
-
-Convenience functions for working with `Html.Attribute`
+{-| Convenience functions for working with `Html.Attribute`.
 
 @docs none
 
@@ -12,7 +10,7 @@ import Html exposing (Attribute)
 import Html.Attributes exposing (class)
 
 
-{-| Empty attribute
+{-| Empty attribute.
 
 Useful if need to produce an HTML attribute that evaluates to nothing. Example:
 
