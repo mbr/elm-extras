@@ -26,13 +26,17 @@ always value =
 
 
 {-| Change the order of the arguments of a two argument function.
+
+    > flip (++) "Hello" "World"
+    "WorldHello" : String
+
 -}
 flip : (a -> b -> c) -> (b -> a -> c)
 flip f a b =
     f b a
 
 
-{-| Negated functional `if-then-else`
+{-| Negated, functional if-then-else.
 
 Checks a condition and returns the respective value.
 
