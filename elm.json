@@ -2,7 +2,7 @@
     "type": "package",
     "name": "mbr/elm-extras",
     "summary": "Highly experimental general purpose standard library extension",
-    "license": "BSD-3-Clause",
+    "license": "MIT",
     "version": "1.0.0",
     "exposed-modules": [],
     "elm-version": "0.19.0 <= v <= 0.20.0",
