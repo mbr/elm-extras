@@ -6,6 +6,8 @@ This module is intended to extend
 [List.Extra](https://package.elm-lang.org/packages/elm-community/list-extra/latest), which should be
 the first place to look for extra functionality.
 
+@docs upsert
+
 -}
 
 import List.Extra as List
