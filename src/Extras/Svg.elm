@@ -1,36 +1,43 @@
-module Extras.Svg exposing (nothing, when)
+module Extras.Svg exposing (nothing, viewIf, viewMaybe)
 
-{-| Convenience functions for working with `Svg.Svg`
+{-| Conditional rendering helpers for `Svg.Svg`.
 
-@docs nothing, when
+The names follow the corresponding functions in
+[`Html.Extra`](https://package.elm-lang.org/packages/elm-community/html-extra/latest/Html.Extra).
+
+@docs nothing, viewIf, viewMaybe
 
 -}
 
-import Extras.Core
 import Svg exposing (Svg, text)
 
 
-{-| Empty element.
-
-Useful if need to produce an SVG element that evaluates to nothing. Example:
-
-    let
-        optionalContent =
-            Just (g [] [ text "hello " ])
-    in
-    Maybe.withDefault nothing optionalContent
-
+{-| Empty SVG content.
 -}
 nothing : Svg msg
 nothing =
     text ""
 
 
-{-| Return an element when the condition is true and an empty element otherwise.
+{-| Render SVG content when the condition is true.
 
-    when showLabel (text "Label")
+    viewIf showLabel (text "Label")
 
 -}
-when : Bool -> Svg msg -> Svg msg
-when condition =
-    Extras.Core.unless condition nothing
+viewIf : Bool -> Svg msg -> Svg msg
+viewIf condition svg =
+    if condition then
+        svg
+
+    else
+        nothing
+
+
+{-| Render a present value as SVG content.
+
+    viewMaybe viewIcon selectedIcon
+
+-}
+viewMaybe : (a -> Svg msg) -> Maybe a -> Svg msg
+viewMaybe render =
+    Maybe.map render >> Maybe.withDefault nothing

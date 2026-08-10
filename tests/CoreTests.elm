@@ -15,10 +15,9 @@ suite =
                     { foo = "foo", bar = "bar" }
              in
              [ test "works on simple record" <|
-                \_ ->
-                    Expect.true "Expected `byKey` extracts the correct field value" <| byKey .bar "bar" rec
+                \_ -> Expect.equal True (byKey .bar "bar" rec)
              , test "fails on wrong key" <|
-                \_ -> Expect.false "Expected `byKey` to return false for invalid field value" <| byKey .bar "not-bar" rec
+                \_ -> Expect.equal False (byKey .bar "not-bar" rec)
              ]
             )
         , describe

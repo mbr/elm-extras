@@ -1,42 +1,44 @@
-module Extras.Svg.Attributes exposing (none, when)
+module Extras.Svg.Attributes exposing (empty, attributeIf, attributeMaybe)
 
-{-| Convenience functions for working with `Svg.Attribute`.
+{-| Conditional rendering helpers for `Svg.Attribute`.
 
-@docs none, when
+The names follow the corresponding functions in
+[`Html.Attributes.Extra`](https://package.elm-lang.org/packages/elm-community/html-extra/latest/Html.Attributes.Extra).
+
+@docs empty, attributeIf, attributeMaybe
 
 -}
 
-import Extras.Core
 import Svg exposing (Attribute)
 import Svg.Attributes exposing (class)
 
 
-{-| Empty attribute.
-
-Useful if need to produce an SVG attribute that evaluates to nothing. Example:
-
-    div
-        [ if isHidden then
-            style [ "display", "none" ]
-
-          else
-            none
-        ]
-        [ text "example" ]
-
-The name is no conincidence, but was chosen to not clash with `Extras.Svg.nothing`.
-
+{-| Empty SVG attribute.
 -}
-none : Attribute msg
-none =
+empty : Attribute msg
+empty =
     class ""
 
 
-{-| Return an attribute when the condition is true and an empty attribute otherwise.
+{-| Render an SVG attribute when the condition is true.
 
-    when isActive (class "active")
+    attributeIf isActive (class "active")
 
 -}
-when : Bool -> Attribute msg -> Attribute msg
-when condition =
-    Extras.Core.unless condition none
+attributeIf : Bool -> Attribute msg -> Attribute msg
+attributeIf condition svgAttribute =
+    if condition then
+        svgAttribute
+
+    else
+        empty
+
+
+{-| Render a present value as an SVG attribute.
+
+    attributeMaybe id selectedId
+
+-}
+attributeMaybe : (a -> Attribute msg) -> Maybe a -> Attribute msg
+attributeMaybe render =
+    Maybe.map render >> Maybe.withDefault empty

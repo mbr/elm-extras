@@ -1,21 +1,29 @@
 # elm-extras
 
-An experimental library. Do not use.
+An experimental collection of small Elm utilities that do not have an established home elsewhere.
+Expect breaking changes between releases.
 
-Collects various tidbits of elm code, reused across projects, that are either too small for their
-own library or have not found a proper home yet.
+## Migrating from 2.x
 
-## Example use
+Version 3 removes the HTML modules, which duplicated
+[`elm-community/html-extra`](https://package.elm-lang.org/packages/elm-community/html-extra/latest/).
+Install that package and replace the removed APIs as follows:
 
-```elm
-import Extras.Html exposing (nothing)
+| Removed | Replacement |
+| --- | --- |
+| `Extras.Html.nothing` | `Html.Extra.nothing` |
+| `Extras.Html.when` | `Html.Extra.viewIf` |
+| `Extras.Html.Attributes.none` | `Html.Attributes.Extra.empty` |
+| `Extras.Html.Attributes.when` | `Html.Attributes.Extra.attributeIf` |
 
--- ...
+The SVG APIs now use the corresponding `elm-community/html-extra` names:
 
-view =
-    nothing
-```
+| 2.x | 3.x |
+| --- | --- |
+| `Extras.Svg.nothing` | `Extras.Svg.nothing` |
+| `Extras.Svg.when` | `Extras.Svg.viewIf` |
+| `Extras.Svg.Attributes.none` | `Extras.Svg.Attributes.empty` |
+| `Extras.Svg.Attributes.when` | `Extras.Svg.Attributes.attributeIf` |
 
-## Word of warning
-
-Expect changes and breakage frequently. Do not use this.
+`Extras.Svg.viewMaybe` and `Extras.Svg.Attributes.attributeMaybe` provide SVG counterparts to the
+HTML package's optional rendering helpers.
